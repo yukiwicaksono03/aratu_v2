@@ -12,6 +12,16 @@ npm run dev
 
 Buka **http://localhost:5173**. Gunakan `PORT=3000 npm run dev` untuk port lain. Server pengembangan hanya mendengarkan pada loopback.
 
+## Deploy ke Vercel
+
+Repository ini menyertakan `vercel.json`. Vercel akan menjalankan `npm run build`, lalu menyajikan folder `dist/`. Setelah import repository, biarkan Framework Preset **Other** dan gunakan pengaturan berikut jika Vercel meminta konfigurasi manual:
+
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Install Command: `npm install`
+
+`server.mjs` hanya untuk server lokal; Vercel tidak perlu menjalankannya. Jika deployment lama masih menampilkan 404, lakukan redeploy dari commit yang berisi `vercel.json` dan pastikan **Root Directory** menunjuk ke folder repository yang berisi `package.json`.
+
 ```sh
 npm test
 npm run build
